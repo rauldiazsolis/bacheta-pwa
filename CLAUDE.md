@@ -25,7 +25,7 @@
 
 - **Plan vigente:** `docs/plan.md`. Algoritmos y umbrales: `docs/algoritmos.md`. Decisiones: `docs/decisiones/`.
 - **Capas (verificadas por ESLint y por `tests/arquitectura/`):**
-  - `src/core/` — lógica pura. Sin `window`, `navigator`, `document`, `fetch`, `Date`, `performance`, etc.: todo entra por un puerto (`src/core/puertos/`), incluido el reloj.
+  - `src/core/` — lógica pura. Sin `window`, `navigator`, `document`, `fetch`, `performance`, `Date.now()` / `new Date()`, etc.: todo entra por un puerto (`src/core/puertos/`), incluido el reloj.
   - `src/hardware/` — adaptadores reales de APIs del navegador (incluye IndexedDB).
   - `src/simulacion/` — implementaciones sintéticas y reproducción de grabaciones.
   - `src/workers/` — hilos aparte (visión).

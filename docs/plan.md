@@ -36,7 +36,7 @@ Plan aprobado al cierre de la Fase 0 de planificación. Los cambios posteriores 
 ### Fase 0.5 — Factibilidad en los teléfonos
 
 - **Entregables:** página `/spike/` que mide y exporta a JSON:
-  - velocidad del modelo (WebGPU / WASM, fp16 / q8, 256 / 392 px; mediana y p95);
+  - velocidad del modelo (WebGPU / WASM, fp16 / q8, 252 / 392 px (múltiplos de 14); mediana y p95);
   - frecuencia del sensor de movimiento, frecuencia y precisión del GPS, resolución de la cámara;
   - "Detectar tecla" (botones de volumen y cualquier control disponible);
   - prueba de 20 minutos de pantalla encendida, batería y calor;

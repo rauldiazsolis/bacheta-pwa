@@ -32,7 +32,7 @@ Bacheta es 100 % client-side: no hay servidor propio. Todo el procesamiento (inc
 | `src/ui/`         | Componentes Preact. Reciben estado y acciones; no tocan hardware. | `src/core/`                  |
 | `src/app/`        | Raíz de composición y punto de entrada.                           | Todo                         |
 
-Las reglas se verifican automáticamente: ESLint (`eslint.config.js`) prohíbe en `src/core/` los globales del navegador (`window`, `navigator`, `document`, `fetch`, `indexedDB`, `localStorage`, `performance`, `Date`) y las importaciones de otras capas; prohíbe en `src/ui/` importar de `src/hardware/`. `tests/arquitectura/capas.test.ts` comprueba que esas reglas sigan activas.
+Las reglas se verifican automáticamente: ESLint (`eslint.config.js`) prohíbe en `src/core/` los globales del navegador (`window`, `navigator`, `document`, `fetch`, `indexedDB`, `localStorage`, `performance`), leer el reloj con `Date.now()` o `new Date()` y las importaciones de otras capas; prohíbe en `src/ui/` importar de `src/hardware/`. `tests/arquitectura/capas.test.ts` comprueba que esas reglas sigan activas.
 
 ## Puertos
 

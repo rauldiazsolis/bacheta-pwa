@@ -1,3 +1,4 @@
+import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'vite';
 import preact from '@preact/preset-vite';
 import { VitePWA } from 'vite-plugin-pwa';
@@ -9,6 +10,16 @@ const BASE = '/bacheta-pwa/';
 export default defineConfig({
   base: BASE,
   define: { __VERSION_APP__: JSON.stringify(paquete.version) },
+  build: {
+    rollupOptions: {
+      input: {
+        app: fileURLToPath(new URL('./index.html', import.meta.url)),
+        // Página de mediciones de la Fase 0.5 (docs/factibilidad.md).
+        factibilidad: fileURLToPath(new URL('./spike/index.html', import.meta.url)),
+      },
+    },
+  },
+  worker: { format: 'es' },
   plugins: [
     preact(),
     VitePWA({
@@ -44,6 +55,10 @@ export default defineConfig({
         clientsClaim: true,
         skipWaiting: true,
         globPatterns: ['**/*.{js,css,html,svg,png,webmanifest}'],
+        // La página de factibilidad y el worker del modelo (Transformers.js,
+        // ~1 MB) no se precachean: no hacen falta sin conexión en la app.
+        globIgnores: ['spike/**', 'assets/profundidad.worker-*.js', 'assets/factibilidad-*.js'],
+        navigateFallbackDenylist: [/\/spike\//],
       },
     }),
   ],

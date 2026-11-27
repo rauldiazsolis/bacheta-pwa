@@ -40,24 +40,29 @@ export default tseslint.config(
       ],
       'no-restricted-globals': [
         'error',
-        ...[
-          'window',
-          'document',
-          'navigator',
-          'indexedDB',
-          'localStorage',
-          'fetch',
-          'performance',
-          'Date',
-        ].map((name) => ({
-          name,
-          message: `src/core es lógica pura: inyectá "${name}" a través de un puerto.`,
-        })),
+        ...['window', 'document', 'navigator', 'indexedDB', 'localStorage', 'fetch', 'performance'].map(
+          (name) => ({
+            name,
+            message: `src/core es lógica pura: inyectá "${name}" a través de un puerto.`,
+          }),
+        ),
+      ],
+      // Formatear una fecha recibida está permitido; leer el reloj del sistema, no.
+      'no-restricted-syntax': [
+        'error',
+        {
+          selector: "CallExpression[callee.object.name='Date'][callee.property.name='now']",
+          message: 'src/core es lógica pura: usá el puerto Reloj en lugar de Date.now().',
+        },
+        {
+          selector: "NewExpression[callee.name='Date'][arguments.length=0]",
+          message: 'src/core es lógica pura: usá el puerto Reloj en lugar de new Date().',
+        },
       ],
     },
   },
   {
-    files: ['src/ui/**/*.{ts,tsx}'],
+    files: ['src/ui/**/*.{ts,tsx}', 'spike/ui/**/*.{ts,tsx}'],
     rules: {
       'no-restricted-imports': [
         'error',

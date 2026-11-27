@@ -4,9 +4,9 @@ Progressive Web App (PWA) móvil (Android/Chrome) para relevar baches, veredas r
 
 Pensada y probada primero en **San Miguel de Tucumán, Argentina** (asfalto, adoquín/granito y calles de tierra).
 
-> **Estado:** Fase 0 — base del proyecto. La app todavía no releva. Ver [`docs/plan.md`](docs/plan.md).
+> **Estado:** Fase 0.5 — factibilidad en teléfonos reales. La app todavía no releva. Ver [`docs/plan.md`](docs/plan.md).
 >
-> **Probala:** https://rauldiazsolis.github.io/bacheta-pwa/ (Chrome en Android).
+> **Probala:** https://rauldiazsolis.github.io/bacheta-pwa/ (Chrome en Android). Mediciones: https://rauldiazsolis.github.io/bacheta-pwa/spike/
 
 ## Capacidades Principales (PoC)
 
