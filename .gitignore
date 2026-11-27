@@ -1,0 +1,10 @@
+node_modules/
+dist/
+dev-dist/
+playwright-report/
+test-results/
+*.log
+.DS_Store
+# Grabaciones reales de la calle: nunca al repo público (privacidad).
+grabaciones/
+*.bacheta.zip
