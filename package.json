@@ -1,6 +1,6 @@
 {
   "name": "bacheta-pwa",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "PWA para relevar baches, veredas rotas y derrames de agua de forma autónoma y manos libres. 100 % en el navegador.",
   "scripts": {
     "dev": "vite",
@@ -19,6 +19,7 @@
   "author": "rauldiazsolis",
   "license": "MIT",
   "dependencies": {
+    "@huggingface/transformers": "4.3.2",
     "preact": "^11.2.0"
   },
   "devDependencies": {

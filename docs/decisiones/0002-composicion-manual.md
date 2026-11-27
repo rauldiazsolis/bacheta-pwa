@@ -6,4 +6,4 @@
 
 **Motivos.** La app es chica y no necesita ámbitos anidados; ningún contenedor cruza la frontera de un Web Worker, que de todos modos se arma a mano; los tests pasan dobles por parámetro sin configuración extra. El reloj también es un puerto, lo que hace deterministas la reproducción y los tests de tiempo.
 
-**Consecuencias.** ESLint prohíbe en `src/core/` los globales del navegador (incluido `Date`) y las importaciones de otras capas; un test verifica que esa regla siga activa.
+**Consecuencias.** ESLint prohíbe en `src/core/` los globales del navegador (y leer el reloj con `Date.now()` / `new Date()`) y las importaciones de otras capas; un test verifica que esa regla siga activa.

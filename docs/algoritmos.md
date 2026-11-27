@@ -42,6 +42,8 @@ Máquina de estados por botón, alimentada por eventos `pulsar`/`soltar` con mar
 
 Con un control de 2 botones, cada botón tiene su tipo y el doble clic no hace falta (no hay espera de 400 ms).
 
+**Foco:** un control Bluetooth que manda `Enter` "aprieta" el botón de la interfaz que tenga el foco. Durante el relevamiento ningún control debe quedar enfocado (detectado en la Fase 0.5 por el test de punta a punta).
+
 ## 5. Georreferencia
 
 - **Coordenadas locales:** proyección equirectangular alrededor del primer punto de la sesión (error despreciable en pocos km).
@@ -61,6 +63,7 @@ Con un control de 2 botones, cada botón tiene su tipo y el doble clic no hace f
 - Altura de la cámara `h` (configurada una vez), inclinación hacia abajo del eje óptico `β` y rolado `ρ` calculados en cada cuadro a partir de ĝ.
 - Distancia focal en píxeles: `f = (H / 2) / tan(FOV_v / 2)` (FOV vertical con valor por defecto ajustable).
 - Un punto del suelo a distancia d está a un ángulo de depresión `φ = atan(h / d)`; su fila en la imagen es `y = c_y + f · tan(φ − β)`. La línea se rota `ρ` alrededor del centro.
+- Lado de entrada del modelo: múltiplo de 14 px (252 o 392 según la Fase 0.5).
 - Distancias por defecto: **1,5 / 2,5 / 3,5 m**. Cada franja abarca d ± 0,25 m y un ancho de calzada configurable (trapecio por perspectiva).
 - Si β cae fuera de 10°–50° o |ρ| > 15°, la visión se suspende con un tono.
 

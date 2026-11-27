@@ -17,8 +17,17 @@ describe('reglas de capas', () => {
   });
 
   it('src/core no puede leer el reloj del sistema directamente', async () => {
-    const errores = await erroresDe('export const t = Date.now();\n', 'src/core/x.ts');
-    expect(errores).toContain('no-restricted-globals');
+    expect(await erroresDe('export const t = Date.now();\n', 'src/core/x.ts')).toContain(
+      'no-restricted-syntax',
+    );
+    expect(await erroresDe('export const d = new Date();\n', 'src/core/x.ts')).toContain(
+      'no-restricted-syntax',
+    );
+  });
+
+  it('src/core sí puede formatear una fecha recibida', async () => {
+    const codigo = 'export const iso = (ms: number): string => new Date(ms).toISOString();\n';
+    expect(await erroresDe(codigo, 'src/core/x.ts')).toEqual([]);
   });
 
   it('src/core no puede importar de hardware ni de ui', async () => {
